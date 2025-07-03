@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePass - Gerador de Senhas Seguras</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-lock"></i>
+                <h1>Secure<span>Pass</span></h1>
+            </div>
+            <p class="tagline">Gerador de senhas seguras e aleatórias</p>
+        </header>
+
+        <main class="main-content">
+            <section class="password-display">
+                <div class="password-container">
+                    <input type="text" id="campo-senha" readonly>
+                    <div class="password-actions">
+                        <button id="copiar-senha" title="Copiar senha">
+                            <i class="far fa-copy"></i>
+                        </button>
+                        <button id="atualizar-senha" title="Gerar nova senha">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="password-strength">
+                    <div class="strength-meter">
+                        <div class="strength-bar"></div>
+                    </div>
+                    <div class="strength-labels">
+                        <span>Fraca</span>
+                        <span>Média</span>
+                        <span>Forte</span>
+                        <span>Muito Forte</span>
+                    </div>
+                    <p class="entropy-info"></p>
+                </div>
+            </section>
+
+            <section class="controls">
+                <div class="control-group">
+                    <h2><i class="fas fa-sliders-h"></i> Configurações</h2>
+                    <div class="length-control">
+                        <label for="tamanho-slider">Tamanho: <span id="length-value">12</span> caracteres</label>
+                        <input type="range" id="tamanho-slider" min="4" max="50" value="12">
+                    </div>
+                    <div class="character-types">
+                        <h3>Tipos de caracteres:</h3>
+                        <div class="checkboxes">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="maiusculo" checked>
+                                <span class="checkmark"></span>
+                                Letras maiúsculas (A-Z)
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="minusculo">
+                                <span class="checkmark"></span>
+                                Letras minúsculas (a-z)
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="numero">
+                                <span class="checkmark"></span>
+                                Números (0-9)
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="simbolo">
+                                <span class="checkmark"></span>
+                                Símbolos (!@#$%^&*)
+                            </label>
+                        </div>
+                        <button id="selecionar-tudo" class="btn-select-all">
+                            <i class="fas fa-check-double"></i> Selecionar tudo
+                        </button>
+                    </div>
+                </div>
+
+                <div class="quick-generate">
+                    <h2><i class="fas fa-bolt"></i> Geradores Rápidos</h2>
+                    <div class="quick-buttons">
+                        <button class="quick-btn" data-tamanho="16" data-maiusculo="true" data-minusculo="true" data-numero="true" data-simbolo="true">
+                            <i class="fas fa-shield-alt"></i> Super Segura
+                        </button>
+                        <button class="quick-btn" data-tamanho="12" data-maiusculo="true" data-minusculo="true" data-numero="true" data-simbolo="false">
+                            <i class="fas fa-key"></i> Padrão
+                        </button>
+                        <button class="quick-btn" data-tamanho="8" data-maiusculo="true" data-minusculo="true" data-numero="true" data-simbolo="false">
+                            <i class="fas fa-user"></i> Para Contas
+                        </button>
+                        <button class="quick-btn" data-tamanho="6" data-maiusculo="false" data-minusculo="false" data-numero="true" data-simbolo="false">
+                            <i class="fas fa-mobile-alt"></i> PIN
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Gerador de senhas seguras &copy; 2023 | Desenvolvido com <i class="fas fa-heart"></i> para sua segurança</p>
+        </footer>
+    </div>
+
+    <div class="notification" id="notificacao"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>
